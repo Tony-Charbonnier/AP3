@@ -20,10 +20,10 @@ class PdoGsb{
 		private static $monPdoGsb=null;*/
 
 		////online host
-		private static $serveur='mysql:host=db5006775524.hosting-data.io';
-      	private static $bdd='dbname=dbs5605742';   		
-      	private static $user='dbu940125' ;    		
-      	private static $mdp='Chipie@78' ;	
+		private static $serveur='mysql:host=host1';
+      	private static $bdd='dbname=db1';   		
+      	private static $user='User1' ;    		
+      	private static $mdp='mdp1' ;	
 		private static $monPdo;
 		private static $monPdoGsb=null;
 /**
