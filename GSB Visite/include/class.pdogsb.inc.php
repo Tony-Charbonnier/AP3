@@ -10,11 +10,20 @@
  * $monPdoGsb qui contiendra l'unique instance de la classe
  */
 
-class PdoGsb{   		
-      	private static $serveur='mysql:host=localhost';
+class PdoGsb{   
+	//// local host 		
+     /* 	private static $serveur='mysql:host=localhost';
       	private static $bdd='dbname=gsbvisite';   		
       	private static $user='root' ;    		
       	private static $mdp='root' ;	
+		private static $monPdo;
+		private static $monPdoGsb=null;*/
+
+		////online host
+		private static $serveur='mysql:host=db5006775524.hosting-data.io';
+      	private static $bdd='dbname=dbs5605742';   		
+      	private static $user='dbu940125' ;    		
+      	private static $mdp='Chipie@78' ;	
 		private static $monPdo;
 		private static $monPdoGsb=null;
 /**
@@ -53,7 +62,7 @@ class PdoGsb{
  * @return l'id, le nom et le prénom sous la forme d'un tableau associatif 
 */
 	public function getInfosVisiteur($login, $mdp){
-		$req = "select visiteur.id as id, visiteur.nom as nom, visiteur.prenom as prenom, User_Type as type from visiteur 
+		$req = "select visiteur.id as id, visiteur.nom as nom, visiteur.prenom as prenom from visiteur 
 		where visiteur.login='$login' and visiteur.mdp='$mdp'";
 		$rs = PdoGsb::$monPdo->query($req);
 		$ligne = $rs->fetch();

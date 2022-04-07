@@ -13,7 +13,7 @@ switch($action){
 		$mdp = $_REQUEST['mdp'];
 		$visiteur = $pdo->getInfosVisiteur($login,$mdp);
 		if(!is_array( $visiteur)){
-			ajouterErreur("Login ou mot de passe incorrect");
+			//ajouterErreur("Login ou mot de passe incorrect");
 			include("vues/v_erreurs.php");
 			include("vues/v_connexion.php");
 		}
@@ -21,13 +21,13 @@ switch($action){
 			$id = $visiteur['id'];
 			$nom =  $visiteur['nom'];
 			$prenom = $visiteur['prenom'];
-			$type=$visiteur['type'];
-			connecter($id,$nom,$prenom,$type);
-			if ($type==0) include("vues/v_sommaire.php");
-			if ($type==1) include("vues/v_sommaire2.php");
-			
-			
+			connecter($id,$nom,$prenom);
+			include("vues/v_sommaire.php");
 		}
+		break;
+	}
+	case "deconnexion"	:{
+		deconnecter();
 		break;
 	}
 	default :{
